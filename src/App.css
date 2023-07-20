@@ -1,65 +1,61 @@
-.App {
+.parent {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
   text-align: left;
-  font-family: Arial, sans-serif;
-  padding: right 1em;
+}
+.child {
+  display: inline-block;
+  border: 1px solid red;
+  padding: 1rem 1rem;
+  margin-left: 10%;
+  vertical-align: middle;
 }
 
-.App-header {
-  background-color: #5275ba;
-  padding: 2em;
-  color: rgb(226, 207, 34);
-}
-
-.SearchInput {
-  margin-top: 1em;
-}
-
-.SearchInput h3 {
-  margin-bottom: 0.5em;
-}
-
-
-.SearchInput label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 200px;
-}
-
-.Search-bar input::placeholder {
-  width: 50%; 
-  color: #655757; /* Change to your preferred color */
-}
-
-.Search-bar input {
-  width: 50%; 
+.Search-bar {
   padding: 0.5em;
   border: none;
   border-radius: 5px;
   outline: none;
   transition: box-shadow 0.5s ease;
+  background-color: #5275ba;
+  padding: 2em;
+  color: rgb(226, 207, 34);
+  min-width: 75%;
+  text-align: left;
+  font-family: Arial, sans-serif;
+
 }
 
-
-/* This animation is not used in the refactored code, 
-so we're removing it. If it is used somewhere else, 
-please disregard this part.
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} 
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-.App-link {
-  color: #ffd905;
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
 }
-*/
