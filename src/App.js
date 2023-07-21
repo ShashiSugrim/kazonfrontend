@@ -5,10 +5,9 @@ function App() {
   return (
     <>
     <div>
-        <h2 style={{textAlign: "center"}}>Kazon</h2>
+        <h2 style={{textAlign: "center", color:'yellow',backgroundColor:'#3878f7'}}>Kazon </h2>
         </div>
       <div className="parent" >
-      
         <div className="child">
         <div className="Search-bar">
           <input
@@ -24,10 +23,10 @@ function App() {
         </div>
         </div>
         <div className="child">
-        <button>Sign in</button>
+        <button>Sign in</button> 
         </div>
       </div>
-      <h3 style={{ backgroundColor: 'blue' }}>
+      <h3 style={{ backgroundColor: '#3878f7' }}>
         <button> Customer Service</button>
         <button>Best Sellers</button>
       </h3>
