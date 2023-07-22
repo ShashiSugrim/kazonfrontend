@@ -1,5 +1,8 @@
 import React from "react";
 import "./App.css";
+import TopBar from "./components/TopBar";
+import NavBar from "./components/NavBar";
+import ProductPage from "./ProductPage";
 
 function App() {
   return (
