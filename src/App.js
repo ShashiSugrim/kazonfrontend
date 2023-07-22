@@ -3,6 +3,8 @@ import "./App.css";
 import TopBar from "./components/TopBar";
 import NavBar from "./components/NavBar";
 import ProductPage from "./components/ProductPage";
+import shoppingCart from './kazonShoppingCart.jpeg'; // Adjust the path to match your project structure
+
 
 function App() {
   return (
@@ -26,7 +28,10 @@ function App() {
         </div>
         </div>
         <div className="child">
-        <button>Sign in</button> 
+        <button> <h3 style = {{textAlign: "right"}}>Sign in</h3></button> 
+        </div>
+        <div className="child">
+        <button> <img src = {shoppingCart} alt= 'shoppingCart'/></button> 
         </div>
       </div>
       <h3 style={{ backgroundColor: '#3878f7' }}>
