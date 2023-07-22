@@ -1,12 +1,12 @@
 .parent {
-  border: 1px solid black;
+  border: 1px solid rgb(9, 9, 11);
   margin: 1rem;
   padding: 2rem 2rem;
   text-align: left;
 }
 .child {
   display: inline-block;
-  border: 1px solid red;
+  border: 1px solid rgb(10, 8, 8);
   padding: 1rem 1rem;
   margin-left: 10%;
   vertical-align: middle;
@@ -18,9 +18,9 @@
   border-radius: 5px;
   outline: none;
   transition: box-shadow 0.5s ease;
-  background-color: #5275ba;
+  background-color: #3878f7;
   padding: 2em;
-  color: rgb(226, 207, 34);
+  color: rgb(237, 219, 18);
   min-width: 75%;
   text-align: left;
   font-family: Arial, sans-serif;
@@ -48,13 +48,13 @@
 }
 
 .flex-item {
-  background: tomato;
+  background: rgb(245, 254, 112);
   padding: 5px;
   width: 200px;
   height: 150px;
   margin-top: 10px;
   line-height: 150px;
-  color: white;
+  color: #3878f7;
   font-weight: bold;
   font-size: 3em;
   text-align: center;
