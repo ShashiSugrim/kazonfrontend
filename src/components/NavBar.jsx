@@ -1,12 +1,25 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const NavBar = () => {
+  const navigate = useNavigate();
+
+  function handleBest(event) {
+    navigate("bestsellers");
+  }
+
+  function handleCust(event) {
+    navigate("customerservice");
+  }
   return (
     <>
       <div>
         <h3 className="myBackground">
-          <button className="myButton">Customer Service</button>
-          <button className="myButton">Best Sellers</button>
+          <button onClick={handleCust} className="myButton">
+            Customer Service
+          </button>
+          <button onClick={handleBest} className="myButton">
+            Best Sellers
+          </button>
         </h3>
       </div>
     </>
