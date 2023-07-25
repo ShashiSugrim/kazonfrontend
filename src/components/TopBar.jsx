@@ -4,10 +4,22 @@ import shoppingCart from "../kazonShoppingCart.jpeg";
 
 const TopBar = () => {
   const navigate = useNavigate();
-  function handleClick(event) {
+
+  function handleSign(event) {
     console.log("Signed in");
 
-    navigate("/about");
+    navigate("/signin");
+  }
+
+  function handleCreate(event) {
+    navigate("/createAccount");
+  }
+
+  function handleBest(event) {
+    navigate("/bestsellers");
+  }
+  function handleCart(event) {
+    navigate("cart");
   }
 
   return (
@@ -28,23 +40,25 @@ const TopBar = () => {
           </div>
         </div>
         <div className="child">
-          <button>
+          <button onClick={handleSign}>
             {" "}
             <h3 style={{ textAlign: "right" }}>Sign in</h3>
           </button>
-          {/*  
-         </div>
-         <div className="child">
-       <button> <img src = {shoppingCart} alt= 'shoppingCart'/></button> 
-       */}
-          <button className="shoppingCartButton">
-            <img
-              className="shoppingCartImage"
-              src={shoppingCart}
-              alt="shoppingCart"
-            />
+        </div>
+        <div className="child">
+          <button onClick={handleCreate}>
+            {" "}
+            <h3 style={{ textAlign: "right" }}>Create Account</h3>
           </button>
         </div>
+        <button className="shoppingCartButton">
+          <img
+            className="shoppingCartImage"
+            src={shoppingCart}
+            alt="shoppingCart"
+            onClick={handleCart}
+          />
+        </button>
       </div>
     </>
   );
