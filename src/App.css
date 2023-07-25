@@ -1,5 +1,4 @@
 .parent {
-  border: 2px solid rgb(9, 9, 11);
   margin: 2rem;
   padding: 2rem 4rem;
   text-align: left;
@@ -9,7 +8,6 @@
 }
 .child {
   display: inline-block;
-  border: 1px solid rgb(10, 8, 8);
   padding: 1rem 1rem;
   margin-left: 10%;
   vertical-align: middle;
