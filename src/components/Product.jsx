@@ -1,21 +1,22 @@
-import React from 'react'
+import React from "react";
 
 interface Props {
-    imageSrc: string;
-    title: string;
-    price: string;
+  imageSrc: string;
+  title: string;
+  price: string;
 }
 
-const Product = ({source, title, price}) => {
+const Product = ({ source, title, price }) => {
   return (
-    <> 
-    <div>
+    <>
+      <div>
         <img className="flex-item" src={source} />
-        <li >{title}</li>
+        <li>{title}</li>
         <li>{price}</li>
-    </div>
+        <button>Add to Cart</button>
+      </div>
     </>
-    )
-}
+  );
+};
 
-export default Product
+export default Product;
