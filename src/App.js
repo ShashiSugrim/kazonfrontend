@@ -12,6 +12,8 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home";
 import SignIn from "./components/SignIn";
+import Cart from "./components/Cart";
+import CreateAccount from "./components/CreateAccount";
 
 function App() {
   const navigate = useNavigate();
@@ -22,25 +24,13 @@ function App() {
   return (
     <>
       <div className="App">
-        <h2
-          style={{
-            textAlign: "center",
-            color: "yellow",
-            backgroundColor: "#3878f7",
-          }}
-        >
-          Kazon{" "}
-        </h2>
-
-        <TopBar />
-        <NavBar />
-        {/* <nav>
-          <Link to="/signin">Sign in</Link>
-        </nav> */}
+        {/* <Home /> */}
         <Routes>
-          <Route path="/" element={<ProductPage />} />
-          <Route path="about" element={<Home />} />
+          <Route path="*" element={<Home />} />
           <Route path="signin" element={<SignIn />} />
+          <Route path="/createaccount" element={<CreateAccount />} />
+
+          <Route path="cart" element={<Cart />} />
         </Routes>
       </div>
     </>
