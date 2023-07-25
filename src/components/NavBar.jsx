@@ -1,14 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const NavBar = () => {
   return (
     <>
-    <h3 style={{ backgroundColor: 'blue' }}>
-        <button> Customer Service</button>
-        <button>Best Sellers</button>
-      </h3>
+      <div>
+        <h3 className="myBackground">
+          <button className="myButton">Customer Service</button>
+          <button className="myButton">Best Sellers</button>
+        </h3>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
