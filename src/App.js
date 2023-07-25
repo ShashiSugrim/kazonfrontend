@@ -3,7 +3,7 @@ import "./App.css";
 import TopBar from "./components/TopBar";
 import NavBar from "./components/NavBar";
 import ProductPage from "./components/ProductPage";
-import shoppingCart from './kazonShoppingCart.jpeg'; // Adjust the path to match your project structure
+import shoppingCart from '../src/kazonShoppingCart.jpeg'; // Adjust the path to match your project structure
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <div>
         <h2 style={{textAlign: "center", color:'yellow',backgroundColor:'#3878f7'}}>Kazon </h2>
         </div>
-      <div className="parent" >
+      <div className="parent">
         <div className="child">
         <div className="Search-bar">
           <input
@@ -29,16 +29,29 @@ function App() {
         </div>
         <div className="child">
         <button> <h3 style = {{textAlign: "right"}}>Sign in</h3></button> 
-        </div>
-        <div className="child">
-        <button> <img src = {shoppingCart} alt= 'shoppingCart'/></button> 
+         {/*  
+         </div>
+         <div className="child">
+       <button> <img src = {shoppingCart} alt= 'shoppingCart'/></button> 
+       */}
+      <button className="shoppingCartButton">
+      <img className="shoppingCartImage" src={shoppingCart} alt="shoppingCart"/>
+      </button>
         </div>
       </div>
-      <h3 style={{ backgroundColor: '#3878f7' }}>
+   {/*
+   <h3 style={{ backgroundColor: '#3878f7' }}>
         <button> Customer Service</button>
         <button>Best Sellers</button>
       </h3>
+  */} 
       <div>
+      <div>
+      <h3 className="myBackground">
+        <button className="myButton">Customer Service</button>
+        <button className="myButton">Best Sellers</button>
+      </h3>
+    </div>
       <ul class="flex-container">
   <li class="flex-item">1</li>
   <li class="flex-item">2</li>
