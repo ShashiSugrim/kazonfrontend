@@ -10,15 +10,15 @@ interface Props {
 const Product = ({ source, title, price }) => {
   return (
     <>
-      <div>
-        <img
-          className="flex-item"
-          src={source ? source : reactLogo}
-          alt="no image"
-        />
-        <li>{title}</li>
-        <li>{price}</li>
-        <button className="btn btn-success">Add to Cart</button>
+      <div class="card" style={{ width: "14rem" }}>
+        <img src={source} class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{title}</h5>
+          <p class="card-text">Price: {price}</p>
+          <a href="#" class="btn btn-primary">
+            Add to Cart
+          </a>
+        </div>
       </div>
     </>
   );
