@@ -1,13 +1,32 @@
 import React from "react";
-import "../components/css/NavBar.css";
+import { useNavigate } from "react-router-dom";
 const NavBar = () => {
+  const navigate = useNavigate();
+
+  function handleBest(event) {
+    navigate("bestsellers");
+  }
+
+  function handleCust(event) {
+    navigate("customerservice");
+  }
   return (
     <>
       <div>
-        <h3 className="myBackground">
-          <button className="myButton">Customer Service</button>
-          <button className="myButton">Best Sellers</button>
-        </h3>
+        <div>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <button onClick={handleCust} className="btn btn-outline-primary">
+              Customer Service
+            </button>
+            <button onClick={handleBest} className="btn btn-outline-primary">
+              Best Sellers
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -1,11 +1,19 @@
 import React from "react";
-import TopBar from "./TopBar";
+import { useNavigate, Route, Routes } from "react-router-dom";
+import LogoBar from "./LogoBar";
+import SignInPage from "./SignInPage";
+import CreateAccount from "./CreateAccount";
 
 const SignIn = () => {
+  let navigate = useNavigate();
+
   return (
     <>
-      <h3>Kazon</h3>
-      <div>SignIn</div>
+      <LogoBar />
+      <Routes>
+        <Route path="/" element={<SignInPage />} />
+        <Route path="/createAccount" element={<CreateAccount />} />
+      </Routes>
     </>
   );
 };
