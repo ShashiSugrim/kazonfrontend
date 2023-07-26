@@ -13,14 +13,20 @@ const NavBar = () => {
   return (
     <>
       <div>
-        <h3 className="myBackground">
-          <button onClick={handleCust} className="myButton">
-            Customer Service
-          </button>
-          <button onClick={handleBest} className="myButton">
-            Best Sellers
-          </button>
-        </h3>
+        <div>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <button onClick={handleCust} className="btn btn-outline-primary">
+              Customer Service
+            </button>
+            <button onClick={handleBest} className="btn btn-outline-primary">
+              Best Sellers
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
