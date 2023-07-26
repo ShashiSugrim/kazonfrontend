@@ -18,7 +18,7 @@ const Product = ({ source, title, price }) => {
         />
         <li>{title}</li>
         <li>{price}</li>
-        <button>Add to Cart</button>
+        <button className="btn btn-success">Add to Cart</button>
       </div>
     </>
   );
