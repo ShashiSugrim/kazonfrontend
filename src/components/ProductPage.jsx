@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Product from "./Product";
 import reactLogo from "../../src/logo192.png";
+import "../components/css/ProductPage.css";
 
 const ProductPage = () => {
   const navigate = useNavigate();

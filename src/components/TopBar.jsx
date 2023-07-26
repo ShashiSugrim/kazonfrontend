@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import shoppingCart from "../kazonShoppingCart.jpeg";
+import "../components/css/TopBar.css";
 
 const TopBar = () => {
   const navigate = useNavigate();
