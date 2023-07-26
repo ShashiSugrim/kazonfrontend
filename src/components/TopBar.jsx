@@ -26,27 +26,30 @@ const TopBar = () => {
     <>
       <div className="parent">
         <div className="child">
-          <div className="Search-bar">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              minlength="7"
-              maxlength="50"
-              size="30"
-              placeholder="Search" // Add this line
-            />
-          </div>
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </nav>
         </div>
         <div className="child">
-          <button onClick={handleSign}>
+          <button className="btn btn-outline-secondary" onClick={handleSign}>
             {" "}
             <h3 style={{ textAlign: "right" }}>Sign in</h3>
           </button>
         </div>
         <div className="child">
-          <button onClick={handleCreate}>
+          <button className="btn btn-outline-secondary" onClick={handleCreate}>
             {" "}
             <h3 style={{ textAlign: "right" }}>Create Account</h3>
           </button>
