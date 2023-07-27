@@ -55,12 +55,11 @@ const TopBar = () => {
             <h3 style={{ textAlign: "right" }}>Create Account</h3>
           </button>
         </div>
-        <button className="shoppingCartButton">
+        <button onClick={handleCart} className="shoppingCartButton">
           <img
             className="shoppingCartImage"
             src={shoppingCart}
             alt="shoppingCart"
-            onClick={handleCart}
           />
         </button>
       </div>
