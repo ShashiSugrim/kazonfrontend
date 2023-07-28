@@ -1,9 +1,5 @@
 import React from "react";
 import "./App.css";
-import TopBar from "./components/TopBar";
-import NavBar from "./components/NavBar";
-import ProductPage from "./components/ProductPage";
-import shoppingCart from "../src/kazonShoppingCart.jpeg"; // Adjust the path to match your project structure
 import {
   BrowserRouter as Router,
   Route,
