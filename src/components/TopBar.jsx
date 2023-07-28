@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import shoppingCart from "../kazonShoppingCart.jpeg";
-import "../components/css/TopBar.css";
+import shoppingCart from "../kazonShoppingCart.png";
+import TopBarCSS from "../css/TopBar.module.css";
 
 const TopBar = () => {
   const navigate = useNavigate();
@@ -25,44 +25,45 @@ const TopBar = () => {
 
   return (
     <>
-      <div className="parent">
-        <div className="child">
-          <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-              <form class="d-flex" role="search">
+      <div className={TopBarCSS.parent}>
+        <div className={TopBarCSS.child}>
+          <nav>
+            <div>
+              <form role="search">
                 <input
-                  class="form-control me-2"
+                  style={{ width: 1000, marginRight: 10 }}
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  className="Search-bar"
                 />
-                <button class="btn btn-outline-success" type="submit">
+                <button className={TopBarCSS.signCreate} type="submit">
                   Search
                 </button>
               </form>
             </div>
           </nav>
         </div>
-        <div className="child">
-          <button className="btn btn-outline-secondary" onClick={handleSign}>
+        <div className={TopBarCSS.child}>
+          <button className={TopBarCSS.signCreate} onClick={handleSign}>
             {" "}
-            <h3 style={{ textAlign: "right" }}>Sign in</h3>
+            Sign in
           </button>
         </div>
-        <div className="child">
-          <button className="btn btn-outline-secondary" onClick={handleCreate}>
+        <div className={TopBarCSS.child}>
+          <button className={TopBarCSS.signCreate} onClick={handleCreate}>
             {" "}
-            <h3 style={{ textAlign: "right" }}>Create Account</h3>
+            Create Account
           </button>
         </div>
-        <button onClick={handleCart} className="shoppingCartButton">
-          <img
-            className="shoppingCartImage"
-            src={shoppingCart}
-            alt="shoppingCart"
-          />
-        </button>
       </div>
+      <button onClick={handleCart} className={TopBarCSS.shoppingCartButton}>
+        <img
+          className={TopBarCSS.shoppingCartImage}
+          src={shoppingCart}
+          alt={TopBarCSS.shoppingCart}
+        />
+      </button>
     </>
   );
 };
