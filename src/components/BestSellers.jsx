@@ -1,11 +1,12 @@
 import React from "react";
 import Product from "./Product";
+import ProductPageCSS from "../css/ProductPage.module.css";
 
 const BestSellers = () => {
   return (
     <>
       <h2>Kazon Best Sellers</h2>
-      <ul className="flex-container">
+      <ul className={ProductPageCSS.flexcontainer}>
         <Product
           source="https://target.scene7.com/is/image/Target/GUEST_84148b12-7ccd-451e-8bdd-247e4f803a30?qlt=85&fmt=webp&hei=325&wid=325"
           title="Pens"
