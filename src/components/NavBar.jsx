@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
+import NavBarCSS from "../css/NavBar.module.css";
+
 const NavBar = () => {
   const navigate = useNavigate();
 
@@ -12,21 +15,13 @@ const NavBar = () => {
   }
   return (
     <>
-      <div>
-        <div>
-          <div
-            class="btn-group"
-            role="group"
-            aria-label="Basic outlined example"
-          >
-            <button onClick={handleCust} className="btn btn-outline-primary">
-              Customer Service
-            </button>
-            <button onClick={handleBest} className="btn btn-outline-primary">
-              Best Sellers
-            </button>
-          </div>
-        </div>
+      <div className={NavBarCSS.navbare}>
+        <button className={NavBarCSS.cusBest} onClick={handleCust}>
+          Customer Service
+        </button>
+        <button className={NavBarCSS.cusBest} onClick={handleBest}>
+          Best Sellers
+        </button>
       </div>
     </>
   );
