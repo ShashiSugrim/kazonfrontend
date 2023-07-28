@@ -1,11 +1,11 @@
 import React from "react";
 import Product from "./Product";
-import "../components/css/ProductPage.css";
+import ProductPageCSS from "../css/ProductPage.module.css";
 
 const ProductPage = () => {
   return (
     <div>
-      <ul className="flex-container">
+      <ul className={ProductPageCSS.flexcontainer}>
         <Product
           source="https://target.scene7.com/is/image/Target/GUEST_96690ddf-da77-486a-b504-877f71b49890?wid=1000&hei=1000&fit=constrain&qlt=80&fmt=webp"
           title="Ticonderoga Pencils"
