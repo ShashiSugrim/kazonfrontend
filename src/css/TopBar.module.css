@@ -10,11 +10,6 @@
   vertical-align: middle;
 }
 
-.Search-bar {
-  border-radius: 5px;
-  transition: box-shadow 0.5s ease;
-  text-align: left;
-}
 .shoppingCartButton {
   position: absolute;
   top: 20px;
@@ -27,4 +22,12 @@
 }
 .signCreate {
   border-radius: 8px;
+}
+
+.searchBar {
+  width: 1000px;
+  margin-right: 10;
+  border-radius: 5px;
+  transition: box-shadow 0.5s ease;
+  text-align: left;
 }
