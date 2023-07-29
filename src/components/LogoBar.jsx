@@ -7,16 +7,28 @@ const LogoBar = () => {
     navigate("/");
   }
   return (
-    <h2
-      onClick={goHome}
-      style={{
-        textAlign: "center",
-        color: "yellow",
-        backgroundColor: "#3878f7",
-      }}
-    >
-      Kazon{" "}
-    </h2>
+    <div style={{ backgroundColor: "#3878f7", display: "flex" }}>
+      <h2
+        onClick={goHome}
+        style={{
+          textAlign: "right",
+          color: "yellow",
+          width: "53%",
+        }}
+      >
+        Kazon
+      </h2>
+      <div
+        style={{
+          color: "yellow",
+          marginRight: 40,
+          textAlign: "right",
+          flexGrow: 1,
+        }}
+      >
+        Signed in as: Guest
+      </div>
+    </div>
   );
 };
 
