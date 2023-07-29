@@ -1,9 +1,10 @@
 import React from "react";
+import SignInCSS from "../css/SignIn.module.css";
 
 const SignInPage = () => {
   return (
     <>
-      <form>
+      <form className={SignInCSS.form}>
         <label for="fname">Username</label>
         <br />
         <input type="text" id="fname" name="fname" />
@@ -11,8 +12,9 @@ const SignInPage = () => {
         <label for="lname">Password</label>
         <br />
         <input type="text" id="lname" name="lname" />
+        <br />
+        <button className={SignInCSS.signIn}>Sign In</button>
       </form>
-      <button>Sign In</button>
     </>
   );
 };
