@@ -13,6 +13,8 @@ import SignIn from "../components/SignIn";
 import BestSellers from "./BestSellers";
 import LogoBar from "./LogoBar";
 import CustomerService from "./CustomerService";
+import SearchResults from "./SearchResults";
+import Report from "./Report";
 
 export default function Home() {
   return (
@@ -27,6 +29,8 @@ export default function Home() {
         <Route path="/" element={<ProductPage />} />
         <Route path="bestsellers" element={<BestSellers />} />
         <Route path="customerservice" element={<CustomerService />} />
+        <Route path="searchResults" element={<SearchResults />} />
+        <Route path="report" element={<Report />} />
       </Routes>
     </>
   );
