@@ -23,6 +23,10 @@ const TopBar = () => {
     navigate("cart");
   }
 
+  function handleSearch(event) {
+    navigate("searchResults");
+  }
+
   return (
     <>
       <div className={TopBarCSS.parent}>
@@ -31,13 +35,16 @@ const TopBar = () => {
             <div>
               <form role="search">
                 <input
-                  style={{ width: 1000, marginRight: 10 }}
+                  className={TopBarCSS.searchBar}
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
-                  className="Search-bar"
                 />
-                <button className={TopBarCSS.signCreate} type="submit">
+                <button
+                  onClick={handleSearch}
+                  className={TopBarCSS.signCreate}
+                  type="submit"
+                >
                   Search
                 </button>
               </form>
