@@ -1,12 +1,13 @@
 import React from "react";
 import LogoBar from "./LogoBar";
+import CreateAccountCSS from "../css/CreateAccount.module.css";
 
 const CreateAccount = () => {
   return (
     <>
       <LogoBar />
 
-      <form>
+      <form className={CreateAccountCSS.form}>
         <label for="fname">EMAIL</label>
         <br />
         <input type="text" id="email" name="email" />
@@ -20,8 +21,9 @@ const CreateAccount = () => {
         <label for="lname">Password</label>
         <br />
         <input type="text" id="lname" name="lname" />
+        <br />
+        <button className={CreateAccountCSS.mainBut}>Create account</button>
       </form>
-      <button>Create account</button>
     </>
   );
 };
