@@ -6,18 +6,28 @@ const Cart = () => {
 
   // Function to add an item to the cart using functional update
   const addItemToCart = (item) => {
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    const existingItem = cartItems.find((cartItem) => cartItem.name === item);
+    if (existingItem) {
+      setCartItems((prevCartItems) =>
+        prevCartItems.map((cartItem) =>
+          cartItem.name === item
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        )
+      );
+    } else {
+      setCartItems((prevCartItems) => [...prevCartItems, { name: item, quantity: 1 }]);
+    }
   };
 
-  // Array of objects representing items
+  // Array of objects representing items with prices
   const items = [
-    { name: "Ticonderoga Pencils" },
-    { name: "Headphones" },
-    { name: "Exercise Bike" },
-    { name: "Pens" },
-    { name: "Dove Soap" },
-    { name: "5 pack socks" },
-    // You can add more items here
+    { name: "Ticonderoga Pencils", price: 5 },
+    { name: "Headphones", price: 500 },
+    { name: "Exercise Bike", price: 600 },
+    { name: "Pens", price: 5 },
+    { name: "Dove Soap", price: 3 },
+    { name: "5 pack socks", price: 16 },
   ];
 
   // Inline styles for cart container and buttons
@@ -40,6 +50,14 @@ const Cart = () => {
     cursor: "pointer",
   };
 
+  // Function to calculate the total price
+  const calculateTotalPrice = () => {
+    return cartItems.reduce(
+      (total, cartItem) => total + cartItem.quantity * items.find((item) => item.name === cartItem.name).price,
+      0
+    );
+  };
+
   return (
     <>
       <LogoBar />
@@ -48,9 +66,12 @@ const Cart = () => {
         <h3>Cart Items:</h3>
         <ul>
           {cartItems.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li key={index}>
+              {item.name} {item.quantity > 1 ? `(${item.quantity}x)` : null}
+            </li>
           ))}
         </ul>
+        <h3>Total Price: ${calculateTotalPrice()}</h3>
       </div>
       {/* Dynamically render buttons for each item */}
       <div style={buttonContainerStyle}>
