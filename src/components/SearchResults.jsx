@@ -1,9 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Product from "./Product";
+import ProductPageCSS from "../css/ProductPage.module.css";
+import axios from "axios";
+import { useLocation, useParams } from "react-router-dom";
 
-const SearchResults = () => {
+const SearchResults = ({}) => {
+  const [products, setProducts] = useState([]);
+  const location = useLocation();
+  //  let searchQuery = location.state.searchQuery;
+   const { state } = useParams();
+   let searchQuery = state;
+   console.log("This is state in searchResults: " + state);
+  function getProducts() {
+    console.log("query is " + "http://localhost:3001/search/" + searchQuery);
+    // let searchQuery1 = 'pencils';
+    axios
+      .get("http://localhost:3001/search/" + searchQuery)
+      .then((response) => {
+        console.log("Responses are " + JSON.stringify(response.data));
+        setProducts(response.data);
+      })
+      .catch((err) => {
+        if (err) {
+          console.log("error" + err);
+        }
+      });
+  }
+ useEffect(() => {
+    let ignore = false;
+
+    if (!ignore) getProducts();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
   return (
     <>
-      <h4 style={{ marginLeft: 20 }}>SearchResults for: </h4>
+      <h4 style={{ marginLeft: 20 }}>SearchResults for: {searchQuery}</h4>
+      <div>
+      <ul className={ProductPageCSS.flexcontainer}>
+        {products.map((data, index) => {
+          return (
+            <Product
+              source={data.imgurl}
+              title={data.title}
+              price={"$" + data.price}
+              key={index}
+            />
+          );
+        })}
+      </ul>
+    </div>
     </>
   );
 };
