@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
+  const [subTotal, setsubTotal] = useState(0);
   useEffect(() => {
     let ignore = false;
 
@@ -15,6 +16,16 @@ const Cart = () => {
       ignore = true;
     };
   }, []);
+  useEffect(()=>
+  {
+    let total=0;
+    console.log("Products are " + JSON.stringify(products));
+    for(let i=0;i<products.length;i++)
+    {
+      total += parseFloat(products[i].price);
+    }
+    setsubTotal(total);
+  }, [products]);
   function getProducts() {
     axios
       .get("http://localhost:3001/cart", {
@@ -26,6 +37,10 @@ const Cart = () => {
       .then((response) => {
         console.log("Responses are " + JSON.stringify(response.data));
         setProducts(response.data);
+        
+        console.log("we just set products and they are now " + JSON.stringify(products));
+        // window.location.reload(false);
+
       })
       .catch((err) => {
         if (err) {
@@ -51,7 +66,7 @@ const Cart = () => {
         })}
       </div>
       <div className={CartCSS.checkoutDiv}>
-        <h3>Subtotal: $100</h3>
+        <h3>Subtotal: ${subTotal}</h3>
         <button className="btn btn-primary">Check out</button>
       </div>
     </>
