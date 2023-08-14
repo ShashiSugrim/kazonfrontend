@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import SignInCSS from "../css/SignIn.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
 
   const handleSignIn = async (event) =>
   {
@@ -21,6 +23,7 @@ const SignInPage = () => {
       {
         localStorage.setItem('accessToken', response.data.accessToken);
         localStorage.setItem('username', JSON.stringify(username));
+        navigate("/");
   
       }
       console.log("response is " + JSON.stringify(response.data))
@@ -31,6 +34,7 @@ const SignInPage = () => {
     });
     console.log('localstorage auth is ' + localStorage.getItem('accessToken'));
     window.location.reload(false);
+    
   }
   
   return (
