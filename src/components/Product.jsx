@@ -1,13 +1,25 @@
-import React from "react";
-import reactLogo from "../logo192.png";
+import React, {useEffect} from "react";
+import axios from "axios";
 
-interface Props {
-  imageSrc: string;
-  title: string;
-  price: string;
-}
+const Product = ({ source, title, price, prodID }) => {
+  useEffect(()=>
+  {
+    console.log("This is " + title);
+  }, [])
 
-const Product = ({ source, title, price }) => {
+  const handleAdd = async() =>
+  {
+
+    await axios.post("http://localhost:3001/addToCart", {  id: prodID }, {headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
+      console.log("Responses are " + JSON.stringify(response.data));
+      alert(`Added ${title} to cart!`);
+    })
+    .catch((err) => {
+      if (err) {
+        console.log("error" + err);
+      }
+    });
+  }
   return (
     <>
       <div className="card" style={{ width: "14rem" }}>
@@ -15,7 +27,7 @@ const Product = ({ source, title, price }) => {
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">Price: {price}</p>
-          <a href="#" className="btn btn-primary">
+          <a className="btn btn-primary" onClick={handleAdd}>
             Add to Cart
           </a>
         </div>
