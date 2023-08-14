@@ -13,11 +13,22 @@ const Product = ({ source, title, price, prodID }) => {
     await axios.post("http://localhost:3001/addToCart", {  id: prodID }, {headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
       console.log("Responses are " + JSON.stringify(response.data));
       alert(`Added ${title} to cart!`);
+      console.log("response status is " + response.status);
+
     })
     .catch((err) => {
-      if (err) {
-        console.log("error" + err);
+      if(err.response.status ===408)
+      {
+        alert("Already in cart!");
       }
+      if(localStorage.getItem('accessToken') === 'null')
+      {
+        console.log("not signed in!");
+        alert("Not signed in!");
+      }
+      // if (err) {
+      //   console.log("error" + err);
+      // }
     });
   }
   return (
