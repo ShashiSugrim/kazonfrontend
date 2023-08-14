@@ -21,7 +21,9 @@ const LogoBar = () => {
     localStorage.setItem("accessToken", "null");
     localStorage.setItem("username", JSON.stringify("Guest"));
     alert("Signed out!");
+    navigate("/");
     window.location.reload(false);
+
   };
 
   return (
@@ -48,6 +50,8 @@ const LogoBar = () => {
           style={{
             marginTop: 10,
             marginRight: 20,
+            borderRadius: 8
+
           }}
         >
           Sign out
