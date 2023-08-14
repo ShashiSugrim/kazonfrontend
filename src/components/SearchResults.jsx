@@ -27,13 +27,7 @@ const SearchResults = ({}) => {
       });
   }
  useEffect(() => {
-    let ignore = false;
-
-    if (!ignore) getProducts();
-
-    return () => {
-      ignore = true;
-    };
+    getProducts();
   }, []);
   return (
     <>
