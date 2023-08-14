@@ -1,29 +1,54 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import LogoBar from "./LogoBar";
 import ProductCart from "./ProductCart";
 import CartCSS from "../css/Cart.module.css";
+import axios from "axios";
 
 const Cart = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    let ignore = false;
+
+    if (!ignore) getProducts();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
+  function getProducts() {
+    axios
+      .get("http://localhost:3001/cart", {
+        headers:
+        {
+          Authorization: localStorage.getItem('accessToken')
+        }
+      })
+      .then((response) => {
+        console.log("Responses are " + JSON.stringify(response.data));
+        setProducts(response.data);
+      })
+      .catch((err) => {
+        if (err) {
+          console.log("error" + err);
+        }
+      });
+  }
   return (
     <>
       <LogoBar />
       <div className={CartCSS.productDiv}>
         <h2 className={CartCSS.heading}>Shopping Cart</h2>
-        <ProductCart
-          source="https://target.scene7.com/is/image/Target/GUEST_96690ddf-da77-486a-b504-877f71b49890?wid=1000&hei=1000&fit=constrain&qlt=80&fmt=webp"
-          title="Ticonderoga Pencils"
-          price="$5"
-        />
-        <ProductCart
-          source="https://target.scene7.com/is/image/Target/GUEST_20a158aa-78a9-4752-ac52-33d79b82ebab?wid=325&hei=325&qlt=80&fmt=pjpeg"
-          title="Headphones"
-          price="$500"
-        />
-        <ProductCart
-          source="https://target.scene7.com/is/image/Target/GUEST_857bae72-cbc4-420a-9a28-ee851c7f11ee?qlt=85&fmt=webp&hei=325&wid=325"
-          title="Exercise Bike"
-          price="$600"
-        />
+        {products.map((data, index) => {
+          return (
+            <ProductCart
+              source={data.imgurl}
+              title={data.title}
+              price={"$" + data.price}
+              key={index}
+              prodID = {data.id}
+            />
+          );
+        })}
       </div>
       <div className={CartCSS.checkoutDiv}>
         <h3>Subtotal: $100</h3>
