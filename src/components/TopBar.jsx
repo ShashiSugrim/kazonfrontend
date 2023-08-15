@@ -1,10 +1,11 @@
-import React from "react";
+import {React, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import shoppingCart from "../kazonShoppingCart.png";
 import TopBarCSS from "../css/TopBar.module.css";
 
 const TopBar = () => {
   const navigate = useNavigate();
+  const [inputText, setInputText] = useState("");
 
   function handleSign(event) {
     console.log("Signed in");
@@ -23,8 +24,9 @@ const TopBar = () => {
     navigate("cart");
   }
 
-  function handleSearch(event) {
-    navigate("searchResults");
+  async function handleSearch(event) {
+    await console.log('from top bar our search query is ' + inputText);
+    navigate("searchResults/" + inputText);
   }
 
   return (
@@ -36,9 +38,10 @@ const TopBar = () => {
               <form role="search">
                 <input
                   className={TopBarCSS.searchBar}
-                  type="search"
+                  type="text"
                   placeholder="Search"
                   aria-label="Search"
+                  onChange={(input) => {setInputText(input.target.value)}}
                 />
                 <button
                   onClick={handleSearch}

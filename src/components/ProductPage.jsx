@@ -37,6 +37,9 @@ const ProductPage = () => {
               source={data.imgurl}
               title={data.title}
               price={"$" + data.price}
+              key={index}
+              prodID = {data.id}
+
             />
           );
         })}

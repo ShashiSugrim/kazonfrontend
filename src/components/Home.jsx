@@ -29,7 +29,7 @@ export default function Home() {
         <Route path="/" element={<ProductPage />} />
         <Route path="bestsellers" element={<BestSellers />} />
         <Route path="customerservice" element={<CustomerService />} />
-        <Route path="searchResults" element={<SearchResults />} />
+        <Route path="searchResults/:state" element={<SearchResults />} />
         <Route path="report" element={<Report />} />
       </Routes>
     </>
