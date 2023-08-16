@@ -1,0 +1,16 @@
+h2.cs,
+h3.cs {
+  text-align: center;
+}
+
+.box {
+  border: 1px solid blue;
+  width: 300px;
+  margin: 2rem;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.container {
+  display: flex;
+}
