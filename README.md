@@ -2,6 +2,9 @@
 ## This is an e-commerce site built with the PERN stack. 
 ### It lets users create an account, add and remove items from their cart, make reports, and, search for products. 
 
+## Deployed on Amazon EC2 Servers
+https://tinyurl.com/2p82bsya
+
 ## To Run
 ### Run the backend first
 https://github.com/ShashiSugrim/kazonbackend
