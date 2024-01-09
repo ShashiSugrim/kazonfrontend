@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    image: clasher/kazon-backend
+    ports:
+      - "3008:3001"
+    depends_on:
+      - db
+
+  frontend:
+    image: clasher/kazon-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  db:
+    image: clasher/kazondb
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: kazondb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+# gets images from the cloud
