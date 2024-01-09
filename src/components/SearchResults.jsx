@@ -12,10 +12,10 @@ const SearchResults = ({}) => {
    let searchQuery = state;
    console.log("This is state in searchResults: " + state);
   function getProducts() {
-    console.log("query is " + "http://localhost:3001/search/" + searchQuery);
+    console.log("query is " + process.env.REACT_APP_BACKEND_URL+"search/" + searchQuery);
     // let searchQuery1 = 'pencils';
     axios
-      .get("http://localhost:3001/search/" + searchQuery)
+      .get(process.env.REACT_APP_BACKEND_URL+"search/" + searchQuery)
       .then((response) => {
         console.log("Responses are " + JSON.stringify(response.data));
         setProducts(response.data);

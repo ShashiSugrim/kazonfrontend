@@ -17,7 +17,7 @@ const ProductPage = () => {
   }, []);
   function getProducts() {
     axios
-      .get("http://localhost:3001/products")
+      .get(process.env.REACT_APP_BACKEND_URL+"products")
       .then((response) => {
         console.log("Responses are " + JSON.stringify(response.data));
         setProducts(response.data);

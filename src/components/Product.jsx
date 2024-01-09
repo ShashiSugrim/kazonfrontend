@@ -10,7 +10,7 @@ const Product = ({ source, title, price, prodID }) => {
   const handleAdd = async() =>
   {
 
-    await axios.post("http://localhost:3001/addToCart", {  id: prodID }, {headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
+    await axios.post(process.env.REACT_APP_BACKEND_URL+"addToCart", {  id: prodID }, {headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
       console.log("Responses are " + JSON.stringify(response.data));
       alert(`Added ${title} to cart!`);
       console.log("response status is " + response.status);

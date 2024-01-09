@@ -7,7 +7,7 @@ const Report = () => {
   const handleReport = async () =>
   {
     console.log("report text is " + reportText);
-    await axios.post("http://localhost:3001/report", {  text:reportText }, {headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
+    await axios.post(process.env.REACT_APP_BACKEND_URL+"report", {  text:reportText }, {headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
       alert(`Added report!`);
     })
     .catch((err) => {

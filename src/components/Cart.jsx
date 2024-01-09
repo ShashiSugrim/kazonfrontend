@@ -27,8 +27,9 @@ const Cart = () => {
     setsubTotal(total);
   }, [products]);
   function getProducts() {
+    console.log("we called this url:" + process.env.REACT_APP_BACKEND_URL+"cart");
     axios
-      .get("http://localhost:3001/cart", {
+      .get(process.env.REACT_APP_BACKEND_URL+"cart", {
         headers:
         {
           Authorization: localStorage.getItem('accessToken')

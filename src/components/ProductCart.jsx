@@ -7,7 +7,7 @@ const ProductCart = ({ source, title, price, prodID }) => {
   const handleRemove = async() =>
   {
 
-    await axios.delete("http://localhost:3001/deleteFromCart", { data: { id: prodID }, headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
+    await axios.delete(process.env.REACT_APP_BACKEND_URL+"deleteFromCart", { data: { id: prodID }, headers: { "Authorization": localStorage.getItem('accessToken')} }).then((response) => {
       console.log("Responses are " + JSON.stringify(response.data));
       window.location.reload(false);
 

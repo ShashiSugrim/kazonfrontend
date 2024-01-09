@@ -14,7 +14,7 @@ const CreateAccount = () => {
   {
     // localStorage.setItem('username', JSON.stringify('signedin'));
     // console.log("username " + username);
-    await axios.post("http://localhost:3001/createAccount", {email: email, password:password}).then((response)=>
+    await axios.post(process.env.REACT_APP_BACKEND_URL+"createAccount", {email: email, password:password}).then((response)=>
     {
       
       console.log("response is " + JSON.stringify(response.data))
@@ -25,7 +25,7 @@ const CreateAccount = () => {
         console.log("error" + err);
       }
     });
-    let accessToken = await axios.post("http://localhost:3001/login", {email:email, password:password});
+    let accessToken = await axios.post(process.env.REACT_APP_BACKEND_URL+"login", {email:email, password:password});
     console.log("accessToken is returning " + accessToken);
     localStorage.setItem("username", JSON.stringify(username));
     localStorage.setItem("accessToken", accessToken.data.accessToken);
